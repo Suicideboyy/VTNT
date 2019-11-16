@@ -1,0 +1,388 @@
+[
+    {
+        "id": "bb0589b4.d16718",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "857cf7cd.39afd8",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "DHT11",
+        "firebaseconfig": "",
+        "childpath": "/Temperatura",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 77.5,
+        "y": 101,
+        "wires": [
+            [
+                "c66ded9f.f199e"
+            ]
+        ]
+    },
+    {
+        "id": "247f8c46.df5804",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Umidade",
+        "firebaseconfig": "",
+        "childpath": "/Umidade",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 79.5,
+        "y": 183,
+        "wires": [
+            [
+                "3e29e6f.bd1f81a"
+            ]
+        ]
+    },
+    {
+        "id": "73d967a6.40bfd8",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Movimento",
+        "firebaseconfig": "",
+        "childpath": "/PirSensor",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 80.5,
+        "y": 277,
+        "wires": [
+            [
+                "941cd8ea.4e3438",
+                "7f748ec8.27339"
+            ]
+        ]
+    },
+    {
+        "id": "91200be.606f1f8",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de fogo",
+        "firebaseconfig": "",
+        "childpath": "Fogo_Sensor",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 99.5,
+        "y": 398,
+        "wires": [
+            [
+                "957413b6.5336c",
+                "627e1d2a.4fe144"
+            ]
+        ]
+    },
+    {
+        "id": "c66ded9f.f199e",
+        "type": "ui_gauge",
+        "z": "bb0589b4.d16718",
+        "name": "",
+        "group": "f1f80ba3.c55d98",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperaura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "70",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 346.5,
+        "y": 101,
+        "wires": []
+    },
+    {
+        "id": "3e29e6f.bd1f81a",
+        "type": "ui_gauge",
+        "z": "bb0589b4.d16718",
+        "name": "",
+        "group": "f1f80ba3.c55d98",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 336.5,
+        "y": 184,
+        "wires": []
+    },
+    {
+        "id": "941cd8ea.4e3438",
+        "type": "ui_audio",
+        "z": "bb0589b4.d16718",
+        "name": "Movimento",
+        "group": "a5784441.06f988",
+        "voice": "en-GB",
+        "always": "",
+        "x": 343.5,
+        "y": 255,
+        "wires": []
+    },
+    {
+        "id": "957413b6.5336c",
+        "type": "ui_audio",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de fogo",
+        "group": "73aa5b47.97c054",
+        "voice": "en-GB",
+        "always": "",
+        "x": 348.5,
+        "y": 367,
+        "wires": []
+    },
+    {
+        "id": "7f748ec8.27339",
+        "type": "ui_text",
+        "z": "bb0589b4.d16718",
+        "group": "a5784441.06f988",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Movimento Detectado",
+        "label": "Movimento",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 373.5,
+        "y": 312,
+        "wires": []
+    },
+    {
+        "id": "627e1d2a.4fe144",
+        "type": "ui_text",
+        "z": "bb0589b4.d16718",
+        "group": "73aa5b47.97c054",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Detecção de fogo",
+        "label": "Detecção de fogo",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 350.5,
+        "y": 438,
+        "wires": []
+    },
+    {
+        "id": "edc7a658.f2a948",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de Chuva",
+        "firebaseconfig": "",
+        "childpath": "Chuva_Sensor",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 115,
+        "y": 525,
+        "wires": [
+            [
+                "b87da753.fed4b8",
+                "bd5d0dd7.5cccb"
+            ]
+        ]
+    },
+    {
+        "id": "bd5d0dd7.5cccb",
+        "type": "ui_text",
+        "z": "bb0589b4.d16718",
+        "group": "904b0b2d.acd588",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Detecção de Chuva",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 378.5,
+        "y": 588,
+        "wires": []
+    },
+    {
+        "id": "b87da753.fed4b8",
+        "type": "ui_audio",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de Chuva",
+        "group": "904b0b2d.acd588",
+        "voice": "en-GB",
+        "always": "",
+        "x": 364.5,
+        "y": 509,
+        "wires": []
+    },
+    {
+        "id": "c43d8f57.89a8",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de Gas",
+        "firebaseconfig": "",
+        "childpath": "Gas_Sensor",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 105,
+        "y": 667,
+        "wires": [
+            [
+                "71f104b8.dda66c",
+                "575826ae.93ca18"
+            ]
+        ]
+    },
+    {
+        "id": "71f104b8.dda66c",
+        "type": "ui_audio",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção de Gas",
+        "group": "b2f55390.e7692",
+        "voice": "en-GB",
+        "always": "",
+        "x": 360,
+        "y": 659,
+        "wires": []
+    },
+    {
+        "id": "575826ae.93ca18",
+        "type": "ui_text",
+        "z": "bb0589b4.d16718",
+        "group": "b2f55390.e7692",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Detecção de Gas",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 355,
+        "y": 727,
+        "wires": []
+    },
+    {
+        "id": "ab8c540b.4f4ee8",
+        "type": "firebase.on",
+        "z": "bb0589b4.d16718",
+        "name": "Detecção Nivel de Gas",
+        "firebaseconfig": "",
+        "childpath": "Gas_Sensor_Nivel",
+        "atStart": true,
+        "eventType": "child_added",
+        "queries": [],
+        "x": 141,
+        "y": 859,
+        "wires": [
+            [
+                "1ef926a3.44ad09"
+            ]
+        ]
+    },
+    {
+        "id": "1ef926a3.44ad09",
+        "type": "ui_gauge",
+        "z": "bb0589b4.d16718",
+        "name": "",
+        "group": "b2f55390.e7692",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Nivel Gas",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "280",
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "350",
+        "seg2": "450",
+        "x": 347.5,
+        "y": 826,
+        "wires": []
+    },
+    {
+        "id": "f1f80ba3.c55d98",
+        "type": "ui_group",
+        "z": "",
+        "name": "Tempo",
+        "tab": "f2458af9.158ba8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a5784441.06f988",
+        "type": "ui_group",
+        "z": "",
+        "name": "Movimento",
+        "tab": "f2458af9.158ba8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "73aa5b47.97c054",
+        "type": "ui_group",
+        "z": "",
+        "name": "Fogo",
+        "tab": "f2458af9.158ba8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "904b0b2d.acd588",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chuva",
+        "tab": "f2458af9.158ba8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b2f55390.e7692",
+        "type": "ui_group",
+        "z": "",
+        "name": "Gas",
+        "tab": "f2458af9.158ba8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f2458af9.158ba8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Sensores",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
